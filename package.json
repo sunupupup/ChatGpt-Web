@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "tsc": "tsc -p tsconfig.node.json",
-    "dev": "ts-node-dev --project tsconfig.node.json server/index.ts",
+    "dev:nginx": "ts-node-dev --project tsconfig.node.json server/index.ts",
+    "dev:backend": "ts-node-dev --project tsconfig.node.json backend/index.ts",
     "dev:web": "vite",
     "start": "node build/index.js",
     "build": "tsc -p tsconfig.node.json && vite build",

@@ -1,13 +1,10 @@
 import express from 'express'
-import path from 'path'
 import cors from 'cors'
 
 const app = express()
 
 app.use(cors({}))
 
-// 获取静态目录
-app.use(express.static(path.join(__dirname, '../dist')))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
@@ -55,12 +52,7 @@ app.post('/api/chat/completions', async (req, res) => {
   res.end()
 })
 
-// 渲染页面
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist', 'index.html'))
-})
-
 // 启动服务器
-app.listen(3333, () => {
-  console.log('Server is running on port 3333')
+app.listen(5678, () => {
+  console.log('Server is running on port 5678')
 })

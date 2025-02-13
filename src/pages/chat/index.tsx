@@ -27,6 +27,8 @@ import PersonaModal from '@/components/PersonaModal'
 import PluginModal from '@/components/pluginModal'
 import MessageItem from './components/MessageItem'
 
+const IGNORE_TOKEN = true;
+
 function ChatPage() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const { scrollToBottomIfAtBottom, scrollToBottom } = useScroll(scrollRef.current)
@@ -214,7 +216,7 @@ function ChatPage() {
 
   // 对话
   async function sendChatCompletions(vaule: string, refurbishOptions?: ChatGpt) {
-    if (!token) {
+    if (!token && !IGNORE_TOKEN) {
       setLoginModal(true)
       return
     }
